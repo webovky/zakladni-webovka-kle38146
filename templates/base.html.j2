@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title%}Titulek{%endblock%}</title>
+    
+    <link rel="stylesheet" 
+          href="{{ url_for('static', filename='styles.css')}}">
+
+</head>
+
+<body>
+
+<h1>Moje oblíbené filmy</h1>
+
+<ul>
+    <li><a href="{{ url_for('index') }}">Domů</a></li>
+    <li><a href="{{ url_for('ritual') }}">The Ritual</a></li>
+    <li><a href="{{ url_for('ircan') }}">Irčan</a></li>
+    <li><a href="{{ url_for('dalsi') }}">Další doporučení</a></li>
+    
+</ul>
+
+<p class="login">
+{% if 'user' in session %}
+Jsi přihlášen jako <strong>{{ session.get('user') }}</strong>. 
+<a href="{{ url_for('logout') }}">Odhlásit!</a>
+{% else %}
+Pozor! Nejsi přihlášen! 
+<a href="{{ url_for('login') }}">Přihlásit se!</a>
+{% endif %}
+</p>
+
+
+{% for category, message in get_flashed_messages(with_categories=true) %}
+    <p class="message {{ category }}">{{ message }}</p>
+{% endfor %}
+
+
+{% block obsah %}
+
+
+
+<p2>Tato webová stránka se věnuje mým oblíbeným filmům. Ke každému filmu uvedu pár informací, mé hodnocení a doporučení.
+</p2>
+
+
+
+{% endblock obsah %} 
+
+</body>
+</html>
+

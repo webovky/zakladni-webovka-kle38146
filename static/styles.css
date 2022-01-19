@@ -1,0 +1,29 @@
+h1 {
+    color: black;
+    
+}
+
+p {
+    color: black;
+    
+}
+
+p2 {
+        color: red;
+
+
+}
+
+.message {
+    width: 50%;
+    border: solid black 2px;
+    padding: 1em;
+    background-color: lightgray;
+}
+
+.pass {
+    color: green;
+}
+.err {
+    color: red;
+}
